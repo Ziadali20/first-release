@@ -38,7 +38,7 @@ app.post('/clean_csv', upload.single('file'), async (req, res) => {
         console.log("ML API Response received.");
 
         // Send the cleaned JSON data back to the client
-        res.json({ cleaned_data: mlResponse.data.cleaned_data });
+        res.json({ cleaned_data: mlResponse.data.cleaned_data, rfm_data: mlResponse.data.rfm_data });
     } catch (error) {
         console.error("Backend error:", error);
         res.status(500).json({ error: 'Error processing file' });
@@ -46,6 +46,5 @@ app.post('/clean_csv', upload.single('file'), async (req, res) => {
 });
 
 app.listen(5001, () => {
-    console.log('Backend server running on port 5001');
+    console.log('Backend server running on port 5001');
 });
-

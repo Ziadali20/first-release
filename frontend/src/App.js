@@ -1,55 +1,26 @@
-
-import React, { useState } from "react";
-import axios from "axios";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { UploadProvider } from "./context/UploadContext";
+import Dashboard from "./components/Dashboard/Dashboard";
+import UploadPage from "./components/UploadPage/UploadPage";
+import Layout from "./components/Layout/Layout";
+import Home from "./components/Home/Home";
 
 function App() {
-    const [file, setFile] = useState(null);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState("");
-
-    const handleFileChange = (e) => {
-        setFile(e.target.files[0]);
-        setError("");
-    };
-
-    const handleUpload = async () => {
-        if (!file) {
-            setError("Please select a CSV file.");
-            return;
-        }
-
-        setLoading(true);
-        setError("");
-
-        const formData = new FormData();
-        formData.append("file", file);
-
-        try {
-            const response = await axios.post("http://localhost:5001/clean_csv", formData, {
-                headers: { "Content-Type": "multipart/form-data" },
-            });
-
-            console.log("Cleaned JSON Response:", response.data);
-        } catch (err) {
-            setError("Error processing file. Please try again.");
-            console.error(err);
-        } finally {
-            setLoading(false);
-        }
-    };
-
     return (
-        <div style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}>
-            <h1>CSV Cleaner</h1>
-            <h1>Test</h1>
-            <input type="file" accept=".csv" onChange={handleFileChange} />
-            <br />
-            <button onClick={handleUpload} disabled={loading}>
-                {loading ? "Processing..." : "Upload and Clean"}
-            </button>
 
-            {error && <p style={{ color: "red" }}>{error}</p>}
-        </div>
+        <UploadProvider>
+            <Router>
+                <Routes>
+                    <Route path="/" element={<Layout />}>
+                        <Route index element={<Home />} /> {/* اجعل Home الصفحة الرئيسية */}
+                        <Route path="upload" element={<UploadPage />} /> {/* صفحة رفع الملف */}
+                        <Route path="dashboard" element={<Dashboard />} />
+                    </Route>
+                </Routes>
+            </Router>
+        </UploadProvider>
+
     );
 }
 
