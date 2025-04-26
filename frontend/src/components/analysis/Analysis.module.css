@@ -1,0 +1,158 @@
+.chartContainer {
+    @apply bg-white rounded-xl shadow-md p-4 mb-6 transition-all duration-300 border border-gray-100;
+  }
+  
+  .chartContainer:hover {
+    @apply shadow-lg border-blue-200;
+  }
+  
+  .chartTitle {
+    @apply text-xl font-semibold text-gray-800 mb-4 border-b pb-2 border-gray-200;
+  }
+  
+  .recommendationTable {
+    @apply w-full mt-4 border-collapse;
+  }
+  
+  .recommendationTable th {
+    @apply bg-blue-50 text-left p-2 text-sm font-semibold text-gray-700 border-b border-gray-200;
+  }
+  
+  .recommendationTable td {
+    @apply p-2 text-sm border-b border-gray-100 text-gray-600;
+  }
+  
+  .recommendationTable tr:hover {
+    @apply bg-blue-50;
+  }
+  
+  .statsCard {
+    @apply bg-gradient-to-br from-white to-blue-50 rounded-xl p-4 shadow-md flex flex-col;
+  }
+  
+  .statsNumber {
+    @apply text-2xl font-bold text-blue-600;
+  }
+  
+  .statsLabel {
+    @apply text-sm text-gray-500 font-medium;
+  }
+  
+  .kpiGrid {
+    @apply grid grid-cols-2 md:grid-cols-4 gap-4 mb-6;
+  }
+  
+  .tabContent {
+    @apply animate-fadeIn;
+  }
+  
+  .insightTag {
+    @apply inline-block px-2 py-1 text-xs rounded-full font-medium mr-2;
+  }
+  
+  .insightPositive {
+    @apply bg-green-100 text-green-800;
+  }
+  
+  .insightNegative {
+    @apply bg-red-100 text-red-800;
+  }
+  
+  .insightNeutral {
+    @apply bg-blue-100 text-blue-800;
+  }
+  
+  .fileUploadBox {
+    @apply flex flex-col items-center justify-center p-6 border-2 border-dashed border-blue-300 rounded-xl bg-blue-50 hover:bg-blue-100 transition-colors duration-200;
+  }
+  
+  .heatmap {
+    @apply h-64 w-full;
+  }
+  
+  .dashboardHeader {
+    @apply bg-gradient-to-r from-blue-600 to-blue-800 text-white p-6 rounded-xl mb-6 shadow-lg;
+  }
+  
+  /* Bootstrap integration */
+  .btn-primary {
+    @apply bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg shadow transition duration-200;
+  }
+  
+  .btn-outline {
+    @apply bg-white hover:bg-gray-100 text-blue-600 border border-blue-600 font-medium py-2 px-4 rounded-lg shadow-sm transition duration-200;
+  }
+  
+  .form-control {
+    @apply w-full border border-gray-300 rounded-lg py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent;
+  }
+  
+  .card {
+    @apply bg-white rounded-xl shadow-md overflow-hidden;
+  }
+  
+  .card-header {
+    @apply bg-gray-50 p-4 border-b border-gray-200;
+  }
+  
+  .card-body {
+    @apply p-4;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-fadeIn {
+    animation: fadeIn 0.3s ease-out forwards;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .kpiGrid {
+      @apply grid-cols-2;
+    }
+    
+    .chartContainer {
+      @apply p-3;
+    }
+  }
+  
+  /* Loading states */
+  .loading-pulse {
+    @apply animate-pulse bg-gray-200 rounded;
+  }
+  
+  /* Insights panel */
+  .insightsPanel {
+    @apply bg-blue-50 p-4 rounded-xl mb-6 border-l-4 border-blue-500;
+  }
+  
+  .insightsList {
+    @apply list-disc pl-5 text-gray-700;
+  }
+  
+  .insightsList li {
+    @apply mb-2;
+  }
+  
+  /* Chart legend customization */
+  .customLegend {
+    @apply flex flex-wrap gap-2 justify-center mt-4;
+  }
+  
+  .legendItem {
+    @apply flex items-center text-xs font-medium;
+  }
+  
+  .legendColor {
+    @apply w-3 h-3 rounded-sm mr-1;
+  }
